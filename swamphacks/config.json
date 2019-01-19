@@ -1,0 +1,5 @@
+{
+    "GCLOUD_PROJECT": "swamphacks-229116",
+    "DATA_BACKEND": "datastore",
+    "CLOUD_BUCKET": "scanned_receipts"
+}
