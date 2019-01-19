@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.swamphacks
 
 import org.junit.Test
 
