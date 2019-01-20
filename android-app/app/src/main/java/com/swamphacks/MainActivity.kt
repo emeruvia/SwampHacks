@@ -19,32 +19,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun uploadButton(view: View) {
-        Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT)
-            .show()
         val intent = Intent(this, PhotoActivity::class.java)
         startActivity(intent)
     }
-
-
-    fun recognizeBtn(view: View) {
-        Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT)
-            .show()
-        val bitmap = BitmapFactory.decodeResource(
-            resources,
-            R.drawable.receipt2
-        )
-        val imageToBeAnalyzed = FirebaseVisionImage.fromBitmap(bitmap)
-        val detector = FirebaseVision.getInstance()
-            .onDeviceTextRecognizer
-
-        val result = detector.processImage(imageToBeAnalyzed)
-            .addOnSuccessListener { firebaseVisionText ->
-                println(firebaseVisionText.text)
-            }
-            .addOnFailureListener {
-                Log.d("failed", "trash")
-            }
-    }
-
-
 }

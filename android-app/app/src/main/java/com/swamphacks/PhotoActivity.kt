@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Matrix
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -16,6 +17,15 @@ import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.Date
+import android.opengl.ETC1.getHeight
+import android.opengl.ETC1.getWidth
+import android.R.attr.pivotY
+import android.R.attr.pivotX
+import android.R.attr.angle
+import android.view.View
+import android.widget.Toast
+import com.google.firebase.ml.vision.FirebaseVision
+import com.google.firebase.ml.vision.common.FirebaseVisionImage
 
 class PhotoActivity : AppCompatActivity() {
 
@@ -104,7 +114,32 @@ class PhotoActivity : AppCompatActivity() {
         }
     BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions)
         ?.also { bitmap ->
-          photoIv.setImageBitmap(bitmap)
+          val matrix = Matrix()
+
+          matrix.postRotate(90f)
+          val rotatedBitmap = Bitmap.createBitmap(
+              bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true
+          )
+
+          recognize(rotatedBitmap)
+          photoIv.setImageBitmap(rotatedBitmap)
         }
   }
+
+  private fun recognize(bitmap: Bitmap) {
+    Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT)
+        .show()
+    val imageToBeAnalyzed = FirebaseVisionImage.fromBitmap(bitmap)
+    val detector = FirebaseVision.getInstance()
+        .onDeviceTextRecognizer
+
+    val result = detector.processImage(imageToBeAnalyzed)
+        .addOnSuccessListener { firebaseVisionText ->
+          println(firebaseVisionText.text)
+        }
+        .addOnFailureListener {
+          Log.d("failed", "trash")
+        }
+  }
+
 }
