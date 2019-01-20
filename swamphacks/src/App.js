@@ -1,61 +1,65 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import {Navbar,Nav,NavItem} from 'react-bootstrap';
+import {BrowserRouter, Route} from 'react-router-dom';
 import './App.css';
 
-import {Navbar,Nav,NavItem,MenuItem,NavDropdown} from 'react-bootstrap';
+import Home from "./components/Home";
+import Travel_Form from "./components/Travel_Form";
+import Event_Report_Form from "./components/Event_Report_Form";
+import Budget_Application from "./components/Budget_Application";
+import Chapter_Report from "./components/Chapter_Report";
+import Expense_Report from "./components/Expense_Report";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Navbar inverse collapseOnSelect>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <a href="#brand">React-Bootstrap</a>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-        </Navbar.Header>
-        <Navbar.Collapse>
-          <Nav>
-            <NavItem eventKey={1} href="#">
-              Link
-            </NavItem>
-            <NavItem eventKey={2} href="#">
-              Link
-            </NavItem>
-            <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-              <MenuItem eventKey={3.1}>Action</MenuItem>
-              <MenuItem eventKey={3.2}>Another action</MenuItem>
-              <MenuItem eventKey={3.3}>Something else here</MenuItem>
-              <MenuItem divider />
-              <MenuItem eventKey={3.3}>Separated link</MenuItem>
-            </NavDropdown>
-          </Nav>
-          <Nav pullRight>
-            <NavItem eventKey={1} href="#">
-              Link Right
-            </NavItem>
-            <NavItem eventKey={2} href="#">
-              Link Right
-            </NavItem>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>;
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <BrowserRouter>
+        <div className="CardBoardCastle">
+          <Route path="/" Component={Home} exact/>
+          <Route path="/Travel_Form" Component={Travel_Form}/>
+          <Route path="/Event_Report" Component={Event_Report_Form}/>
+          <Route path="/Budget_Application" Component={Budget_Application}/>
+          <Route path="/Chapter_Report" Component={Chapter_Report}/>
+          <Route path="/Expense_Report" Component={Expense_Report}/>
+        
+
+
+          <Navbar inverse collapseOnSelect>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <a href="#brand">E-NEST</a>
+            </Navbar.Brand>
+            <Navbar.Toggle />
+          </Navbar.Header>
+          <Navbar.Collapse>
+            <Nav pullRight>
+              <NavItem eventKey={1} href="#">
+                Events
+              </NavItem>
+              <NavItem eventKey={2} href="#">
+                Travel
+              </NavItem>
+              <NavItem eventKey={1} href="#">
+                Budget
+              </NavItem>
+              <NavItem eventKey={1} href="#">
+                Fundraisers
+              </NavItem>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <h1>
+              Header for things
+            </h1>
+            <p>
+              stuff here
+            </p>
+          </header>
+        </div>
+      </BrowserRouter>
     );
   }
 }
