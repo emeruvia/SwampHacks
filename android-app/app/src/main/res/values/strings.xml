@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Swamp Hacks</string>
+  <string name="app_name">Swamp Hacks</string>
+  <string name="welcome_text">Welcome…\nTake a picture of your receipt to scan and upload it\'s contents to the cloud</string>
+  <string name="upload_btn">Upload your picture</string>
 </resources>

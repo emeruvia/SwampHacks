@@ -29,6 +29,9 @@ dependencies {
   implementation 'com.android.support.constraint:constraint-layout:1.1.3'
   implementation 'com.squareup.retrofit2:retrofit:2.5.0'
 
+  // Material
+  implementation 'com.android.support:design:28.0.0'
+
   // Lottie
   implementation 'com.airbnb.android:lottie:2.5.0'
 
