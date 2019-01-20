@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.support.design.button.MaterialButton
 import android.support.v4.content.FileProvider
 import android.util.Log
 import android.widget.ImageView
@@ -32,6 +33,7 @@ class PhotoActivity : AppCompatActivity() {
   lateinit var mCurrentPhotoPath: String
   lateinit var photoIv: ImageView
   lateinit var lottieIv: LottieAnimationView
+  lateinit var analyzeBtn: MaterialButton
   private var imageBitmap: Bitmap? = null
   private var imageName: String = ""
 
@@ -40,6 +42,7 @@ class PhotoActivity : AppCompatActivity() {
     setContentView(R.layout.activity_photo)
     photoIv = findViewById(R.id.photo_iv)
     lottieIv = findViewById(R.id.loading_wave)
+    analyzeBtn = findViewById(R.id.analyze_btn)
     dispatchTakePictureIntent()
   }
 
@@ -140,13 +143,20 @@ class PhotoActivity : AppCompatActivity() {
     val detector = FirebaseVision.getInstance()
         .onDeviceTextRecognizer
 
-    val result = detector.processImage(imageToBeAnalyzed)
+    detector.processImage(imageToBeAnalyzed)
         .addOnSuccessListener { firebaseVisionText ->
-          println(firebaseVisionText.text)
+          analyzeBtn.visibility = View.VISIBLE
+          analyzeBtn.setOnClickListener {
+            val intent = Intent(this, DataActivity::class.java)
+            intent.putExtra("result", firebaseVisionText.text)
+            startActivity(intent)
+          }
         }
         .addOnFailureListener {
           Log.d("failed", "trash")
+          finish()
         }
+
   }
 
   private fun uploadToStorage() {
@@ -165,18 +175,18 @@ class PhotoActivity : AppCompatActivity() {
     val baos = ByteArrayOutputStream()
     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
     val data = baos.toByteArray()
-
-    var uploadTask = imageRef.putBytes(data)
+    val uploadTask = imageRef.putBytes(data)
     uploadTask.addOnFailureListener {
       // Handle unsuccessful uploads
       println("Failure")
-    }.addOnSuccessListener {
-      // taskSnapshot.metadata contains file metadata such as size, content-type, etc.
-      // ...
-      lottieIv.pauseAnimation()
-      lottieIv.visibility = View.GONE
-      println("Success")
     }
+        .addOnSuccessListener {
+          // taskSnapshot.metadata contains file metadata such as size, content-type, etc.
+          // ...
+          lottieIv.pauseAnimation()
+          lottieIv.visibility = View.GONE
+          println("Success")
+        }
   }
 
 }

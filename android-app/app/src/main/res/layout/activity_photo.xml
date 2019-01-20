@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00f390"
-
     tools:context=".PhotoActivity"
     >
 
@@ -38,7 +37,7 @@
       android:id="@+id/analyze_btn"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:onClick="analyzeButton"
+      android:visibility="gone"
       android:paddingTop="24dp"
       android:text="@string/analyze_btn"
       app:icon="@drawable/ic_storage"
