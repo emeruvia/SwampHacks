@@ -16,7 +16,7 @@ const Home = () => {
                 </h3>
             </header>
             <ButtonToolbar>
-                <Button className="Chapter-Button" bsStyle="success" bsSize="large">VIEW CHAPTER REPORT</Button>
+                <Button className="Chapter-Button" bsStyle="success" bsSize="large" href="/Chapter_Report">VIEW CHAPTER REPORT</Button>
             </ButtonToolbar>       
         </div>
     );
