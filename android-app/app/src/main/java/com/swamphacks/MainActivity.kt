@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
+import com.airbnb.lottie.LottieAnimationView
 import com.google.firebase.FirebaseApp
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
     image = findViewById(R.id.main_iv)
-    image.setImageResource(R.drawable.receipt)
+    image.setImageResource(R.drawable.receipt2)
   }
 
   fun recognizeBtn(view: View) {
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         .show()
     val bitmap = BitmapFactory.decodeResource(
         resources,
-        R.drawable.receipt
+        R.drawable.receipt2
     )
     val imageToBeAnalyzed = FirebaseVisionImage.fromBitmap(bitmap)
       val detector = FirebaseVision.getInstance()
