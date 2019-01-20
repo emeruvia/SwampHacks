@@ -2,7 +2,7 @@ import React from "react";
 import logo from '../Logo.PNG';
 import '../App.css';
 
-const Event_Report_Form = () => {
+const Receipts = () => {
     return(
         <div>
             <header className="App-header">
@@ -18,4 +18,4 @@ const Event_Report_Form = () => {
     );
 }
 
-export default Event_Report_Form;
+export default Receipts;

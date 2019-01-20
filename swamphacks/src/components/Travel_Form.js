@@ -1,5 +1,5 @@
 import React from "react";
-import logo from '../logo.svg';
+import logo from '../Logo.PNG';
 import '../App.css';
 
 const Travel_Form = () => {

@@ -8,6 +8,7 @@ import Event_Report_Form from "./components/Event_Report_Form";
 import Budget_Application from "./components/Budget_Application";
 import Chapter_Report from "./components/Chapter_Report";
 import Expense_Report from "./components/Expense_Report";
+import Receipts from "./components/Receipts";
 import Error from "./components/Error";
 
 import Navigation from "./components/Navigation";
@@ -25,6 +26,7 @@ class App extends Component {
             <Route path="/Budget_Application" render={Budget_Application}/>
             <Route path="/Chapter_Report" render={Chapter_Report}/>
             <Route path="/Expense_Report" render={Expense_Report}/>
+            <Route path="/Receipts" render={Receipts}/>
             <Route Component={Error}/>
           </Switch>
         </div>

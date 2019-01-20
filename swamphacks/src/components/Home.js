@@ -1,20 +1,23 @@
 import React from "react";
-import logo from '../logo.svg';
+import logo from '../Logo.PNG';
+import {ButtonToolbar, Button} from 'react-bootstrap';
 import '../App.css';
 
 const Home = () => {
-    console.log("test");
     return(
         <div> 
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 <h1>
-                Header for things
+                FGCU QUIDDITCH OVERVIEW
                 </h1>
-                <p>
-                stuff here
-                </p>
+                <h3>
+                2018-2019
+                </h3>
             </header>
+            <ButtonToolbar>
+                <Button className="Chapter-Button" bsStyle="success" bsSize="large">VIEW CHAPTER REPORT</Button>
+            </ButtonToolbar>       
         </div>
     );
 };
