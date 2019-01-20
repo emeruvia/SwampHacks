@@ -1,9 +1,21 @@
+h1 {
+  color: black;
+  text-transform: capitalize;
+  letter-spacing: -3px;
+  font-weight: bold;
+}
+
+a {
+  color:white !important;
+}
+
 .App {
   text-align: center;
 }
 
 .App-logo {
   height: 40vmin;
+  padding-top: 40px;
 }
 
 .App-header {
@@ -19,4 +31,11 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.Chapter-Button {
+  align-items: center !important;
+  display: flex;
+  flex-direction: column !important;
+  justify-content: center !important;
 }

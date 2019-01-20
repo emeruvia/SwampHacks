@@ -1,8 +1,8 @@
 import React from "react";
-import logo from './../Logo.PNG';
+import logo from '../Logo.PNG';
 import '../App.css';
 
-const Expense_Report = () => {
+const Receipts = () => {
     return(
         <div>
             <header className="App-header">
@@ -18,4 +18,4 @@ const Expense_Report = () => {
     );
 }
 
-export default Expense_Report;
+export default Receipts;
