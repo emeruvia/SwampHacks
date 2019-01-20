@@ -4,6 +4,7 @@
         cloud
     </string>
     <string name="upload_btn">Upload your picture</string>
+    <string name="analyze_btn">Analyzed Data</string>
     <string name="storage_permission_rationale_title">Storage permission required</string>
     <string name="storage_permition_rationale_message">In order to take a picture, you must grant this permission!
     </string>

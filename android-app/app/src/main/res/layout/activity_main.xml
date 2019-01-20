@@ -33,7 +33,7 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      android:layout_marginTop="80dp"
+      android:layout_marginTop="200dp"
       />
 
   <!--<com.google.android.material.button.MaterialButton-->
@@ -54,7 +54,7 @@
       app:layout_constraintEnd_toEndOf="parent"
       android:text="@string/upload_btn"
       app:layout_constraintTop_toBottomOf="@id/welcome_tv"
-      android:paddingTop="16dp"
+      android:paddingTop="24dp"
       />
 
 
