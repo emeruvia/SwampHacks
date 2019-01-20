@@ -145,7 +145,6 @@ class PhotoActivity : AppCompatActivity() {
 
     detector.processImage(imageToBeAnalyzed)
         .addOnSuccessListener { firebaseVisionText ->
-          analyzeBtn.visibility = View.VISIBLE
           analyzeBtn.setOnClickListener {
             val intent = Intent(this, DataActivity::class.java)
             intent.putExtra("result", firebaseVisionText.text)
@@ -183,6 +182,7 @@ class PhotoActivity : AppCompatActivity() {
         .addOnSuccessListener {
           // taskSnapshot.metadata contains file metadata such as size, content-type, etc.
           // ...
+          analyzeBtn.visibility = View.VISIBLE
           lottieIv.pauseAnimation()
           lottieIv.visibility = View.GONE
           println("Success")
